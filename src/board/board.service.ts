@@ -6,12 +6,15 @@ import { Repository } from 'typeorm';
 @Injectable()
 export class BoardService {
   constructor(
-  @InjectRepository(Board)
-  private boardRepository: Repository<Board>
-  ){}
+    @InjectRepository(Board)
+    private boardRepository: Repository<Board>,
+  ) {}
 
   async getBoardList() {
-    return this.boardRepository.find();
+    return this.boardRepository.find({
+      where: { isDelete: false },
+      order: { id: 'DESC' },
+    });
   }
 
   async getBoardOne(id: number) {
@@ -19,10 +22,10 @@ export class BoardService {
   }
 
   async postBoard(boardInfo: Board) {
-    return this.boardRepository.insert(boardInfo)
+    return this.boardRepository.create(boardInfo);
   }
 
   async putBoard(id: number, boardInfo: Board) {
-    await this.boardRepository.update(id, boardInfo)
+    await this.boardRepository.update(id, boardInfo);
   }
 }

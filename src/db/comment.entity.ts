@@ -4,20 +4,17 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToMany,
+  ManyToOne,
 } from 'typeorm';
-import { Comment } from './comment.entity';
+import { Board } from './board.entity';
 
 @Entity()
-export class Board {
+export class Comment {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  title: string; // default string length: 255
-
-  @Column()
-  content: string;
+  content: string; // default string length: 255
 
   @Column({ default: false })
   isDelete: boolean;
@@ -28,6 +25,6 @@ export class Board {
   @UpdateDateColumn()
   updatedAt: Date; // default type: datetime
 
-  @OneToMany(() => Comment, (comment) => comment.board)
-  comment: Comment;
+  @ManyToOne(() => Board, (board) => board.comment)
+  board: Board;
 }
