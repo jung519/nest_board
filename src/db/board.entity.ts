@@ -16,7 +16,7 @@ export class Board {
   @Column()
   title: string; // default string length: 255
 
-  @Column()
+  @Column({ type: 'varchar', length: 1024 })
   content: string;
 
   @Column({ default: false })
