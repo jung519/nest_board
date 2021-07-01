@@ -1,3 +1,4 @@
+import { Logger } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Comment } from 'src/db/comment.entity';
@@ -12,13 +13,6 @@ export class CommentService {
 
   async postComment(commentInfo: Comment) {
     await this.commentRepository.create(commentInfo);
-  }
-
-  async getCommentByBoardId(boardId: number) {
-    return this.commentRepository.find({
-      where: { boardId, isDelete: false },
-      order: { id: 'ASC' },
-    });
   }
 
   async putComment(id: number, commentInfo: Comment) {

@@ -1,3 +1,4 @@
+import { Logger } from '@nestjs/common';
 import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { CommentService } from 'src/comment/comment.service';
 import { Board } from 'src/db/board.entity';
@@ -10,16 +11,14 @@ export class BoardController {
     private readonly commentService: CommentService,
   ) {}
 
-  @Get('/:id')
-  async getBoardOne(@Param('id') id: number) {
-    const boardInfo = await this.boardService.getBoardOne(id);
-    const commentList = await this.commentService.getCommentByBoardId(id);
-    return { boardInfo, commentList };
-  }
-
   @Get('list')
   async getBoardList() {
     return this.boardService.getBoardList();
+  }
+
+  @Get('/:id')
+  async getBoardOne(@Param('id') id: number) {
+    return this.boardService.getBoardOne(id);
   }
 
   @Post('post')

@@ -1,16 +1,32 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "target": "ESNext",
+    "module": "commonjs",
     "declaration": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
+    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
+    "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true
   }
 }
+
+// {
+//   "compilerOptions": {
+//     "module": "ESNext",
+//     "target": "ESNext",
+//     "declaration": true,
+//     "moduleResolution": "node",
+//     "resolveJsonModule": true,
+//     "emitDecoratorMetadata": true,
+//     "experimentalDecorators": true,
+//     "allowSyntheticDefaultImports": true,
+//     "sourceMap": true,
+//     "outDir": "./dist",
+//     "baseUrl": "./",
+//     "incremental": true
+//   }
+// }

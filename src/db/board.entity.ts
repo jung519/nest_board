@@ -28,6 +28,6 @@ export class Board {
   @UpdateDateColumn()
   updatedAt: Date; // default type: datetime
 
-  @OneToMany(() => Comment, (comment) => comment.board)
-  comment: Comment;
+  @OneToMany(() => Comment, (comment) => comment.board, { cascade: true })
+  comments: Comment[];
 }

@@ -25,6 +25,6 @@ export class Comment {
   @UpdateDateColumn()
   updatedAt: Date; // default type: datetime
 
-  @ManyToOne(() => Board, (board) => board.comment)
+  @ManyToOne(() => Board, (board) => board.comments)
   board: Board;
 }
