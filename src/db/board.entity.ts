@@ -14,6 +14,12 @@ export class Board {
   id: number;
 
   @Column()
+  writer: string
+
+  @Column()
+  password: string
+
+  @Column()
   title: string; // default string length: 255
 
   @Column({ type: 'varchar', length: 1024 })

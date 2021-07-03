@@ -14,6 +14,12 @@ export class Comment {
   id: number;
 
   @Column()
+  writer: string
+
+  @Column()
+  password: string
+
+  @Column()
   content: string; // default string length: 255
 
   @Column({ default: false })

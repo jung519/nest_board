@@ -26,6 +26,6 @@ export class BoardController {
 
   @Put('update/:id')
   async putBoard(@Param('id', ParseIntPipe) id: number, @Body() boardInfo: BoardInfoValidator) {
-    await this.boardService.putBoard(id, boardInfo);
+    await this.boardService.putBoard(id, boardInfo.title, boardInfo.content);
   }
 }

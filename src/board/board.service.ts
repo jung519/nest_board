@@ -1,6 +1,7 @@
 import { Logger } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { encrypt } from 'src/common/utils';
 import { BoardInfoValidator } from 'src/common/validator';
 import { Board } from 'src/db/board.entity';
 import { Repository } from 'typeorm';
@@ -32,11 +33,12 @@ export class BoardService {
 
   async postBoard(boardInfo: BoardInfoValidator) {
     Logger.log('postBoard');
-    return this.boardRepository.create(boardInfo);
+    const {password, ...board} = boardInfo
+    return this.boardRepository.create({...board, password: encrypt(password)});
   }
 
-  async putBoard(id: number, boardInfo: BoardInfoValidator) {
+  async putBoard(id: number, title: string, content: string) {
     Logger.log('putBoard');
-    await this.boardRepository.update(id, boardInfo);
+    await this.boardRepository.update(id, { title, content });
   }
 }

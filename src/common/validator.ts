@@ -1,7 +1,14 @@
 import { IsNotEmpty } from "class-validator";
 
+export class UserValidator {
+  @IsNotEmpty()
+  writor: string
 
-export class BoardInfoValidator {
+  @IsNotEmpty()
+  password: string
+}
+
+export class BoardInfoValidator extends UserValidator {
   @IsNotEmpty()
   title: string
   
@@ -9,7 +16,7 @@ export class BoardInfoValidator {
   content: string
 }
 
-export class CommentValidator {
+export class CommentValidator extends UserValidator {
   @IsNotEmpty()
   content: string
 

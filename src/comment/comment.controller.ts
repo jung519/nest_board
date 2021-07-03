@@ -13,6 +13,6 @@ export class CommentController {
 
   @Put('update/:id')
   async putComment(@Param('id', ParseIntPipe) id: number, @Body() commentInfo: CommentValidator) {
-    await this.commentService.putComment(id, commentInfo);
+    await this.commentService.putComment(id, commentInfo.content);
   }
 }
