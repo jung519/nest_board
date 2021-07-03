@@ -1,6 +1,7 @@
 import { Logger } from '@nestjs/common';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { BoardInfoValidator } from 'src/common/validator';
 import { Board } from 'src/db/board.entity';
 import { Repository } from 'typeorm';
 
@@ -29,12 +30,12 @@ export class BoardService {
       .getOne();
   }
 
-  async postBoard(boardInfo: Board) {
+  async postBoard(boardInfo: BoardInfoValidator) {
     Logger.log('postBoard');
     return this.boardRepository.create(boardInfo);
   }
 
-  async putBoard(id: number, boardInfo: Board) {
+  async putBoard(id: number, boardInfo: BoardInfoValidator) {
     Logger.log('putBoard');
     await this.boardRepository.update(id, boardInfo);
   }
