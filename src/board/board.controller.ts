@@ -10,8 +10,11 @@ export class BoardController {
   ) {}
 
   @Get('list')
-  async getBoardList() {
-    return this.boardService.getBoardList();
+  async getBoardList(
+      @Param('skip', ParseIntPipe) skip: number, 
+      @Param('take', ParseIntPipe) take: number
+    ) {
+    return this.boardService.getBoardList(skip, take);
   }
 
   @Get('/:id')

@@ -13,10 +13,12 @@ export class BoardService {
     private boardRepository: Repository<Board>,
   ) {}
 
-  async getBoardList() {
+  async getBoardList(skip: number, take: number) {
     return this.boardRepository.find({
       where: { isDelete: false },
       order: { id: 'DESC' },
+      skip, // 시작 index
+      take  // page당 갯수
     });
   }
 
