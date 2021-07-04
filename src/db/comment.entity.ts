@@ -14,16 +14,10 @@ export class Comment {
   id: number;
 
   @Column()
-  writer: string
-
-  @Column()
-  password: string
+  writer: string;
 
   @Column()
   content: string; // default string length: 255
-
-  @Column({ default: false })
-  isDelete: boolean;
 
   @CreateDateColumn()
   createdAt: Date; // default type: datetime

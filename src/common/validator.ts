@@ -16,7 +16,10 @@ export class BoardInfoValidator extends UserValidator {
   content: string
 }
 
-export class CommentValidator extends UserValidator {
+export class CommentValidator {
+  @IsNotEmpty()
+  writor: string
+  
   @IsNotEmpty()
   content: string
 
