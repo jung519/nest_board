@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import {
   Entity,
   Column,
@@ -13,6 +14,7 @@ export class Board {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @ApiProperty({ example: '관리자', description: '작성자' })
   @Column()
   writer: string;
 
