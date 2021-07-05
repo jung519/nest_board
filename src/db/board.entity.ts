@@ -14,10 +14,10 @@ export class Board {
   id: number;
 
   @Column()
-  writer: string
+  writer: string;
 
   @Column()
-  password: string
+  password: string;
 
   @Column()
   title: string; // default string length: 255

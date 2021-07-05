@@ -1,28 +1,28 @@
-import { IsNotEmpty } from "class-validator";
+import { IsNotEmpty } from 'class-validator';
 
 export class UserValidator {
   @IsNotEmpty()
-  writor: string
+  writer: string;
 
   @IsNotEmpty()
-  password: string
+  password: string;
 }
 
 export class BoardInfoValidator extends UserValidator {
   @IsNotEmpty()
-  title: string
-  
+  title: string;
+
   @IsNotEmpty()
-  content: string
+  content: string;
 }
 
 export class CommentValidator {
   @IsNotEmpty()
-  writor: string
-  
-  @IsNotEmpty()
-  content: string
+  writer: string;
 
   @IsNotEmpty()
-  boardId: number
+  content: string;
+
+  @IsNotEmpty()
+  boardId: number;
 }

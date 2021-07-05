@@ -1,4 +1,4 @@
-import { Post, Body, Controller, Put, Param, ParseIntPipe } from '@nestjs/common';
+import { Post, Body, Controller } from '@nestjs/common';
 import { CommentValidator } from 'src/common/validator';
 import { CommentService } from './comment.service';
 
@@ -9,10 +9,5 @@ export class CommentController {
   @Post('post')
   async postComment(@Body() commentInfo: CommentValidator) {
     await this.commentService.postComment(commentInfo);
-  }
-
-  @Put('update/:id')
-  async putComment(@Param('id', ParseIntPipe) id: number, @Body() commentInfo: CommentValidator) {
-    await this.commentService.putComment(id, commentInfo.content);
   }
 }

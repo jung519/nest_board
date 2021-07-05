@@ -15,8 +15,4 @@ export class CommentService {
   async postComment(commentInfo: CommentValidator) {
     await this.commentRepository.create(commentInfo);
   }
-
-  async putComment(id: number, content: string) {
-    await this.commentRepository.update(id, { content });
-  }
 }
